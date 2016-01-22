@@ -150,7 +150,7 @@ resp
 
 ```
 Response [http://www.omdbapi.com/?t=The+Godfather&plot=short&r=xml]
-  Date: 2016-01-22 05:05
+  Date: 2016-01-22 05:20
   Status: 200
   Content-Type: text/xml; charset=utf-8
   Size: 796 B
@@ -339,11 +339,25 @@ pothole_predict <- function(input){
 Step 3: Save Model as Package
 ====================================================
 <div class="midcenter" style="margin-left:-410px; margin-top:-255px; width:103%;">
-![building R package](build-as-package.png)
+  <img style="width:48%;" src="https://raw.githubusercontent.com/ReportMort/using-and-building-apis-in-R/gh-pages/build-as-package.png" alt="r-package-structure">
+</div>
+<div class="footer">
+&nbsp;&nbsp;Create package documentation with: 
+<span style="font-family: monospace; font-size: 75%;">devtools::document()</span>
 </div>
 
 Step 4: Push Code to Github
 ====================================================
+<div class="midcenter" style="margin-left:-410px; margin-top:-255px; width:103%;">
+  <img style="width:48%;" src="https://raw.githubusercontent.com/ReportMort/using-and-building-apis-in-R/gh-pages/new-repo-screen.png" alt="r-package-structure">
+</div><br><br>
+<pre><code>cd pkg-directory
+git init
+git add -all
+git commit -m "Initial Commit"
+git remote add origin git@github.com:{YourAcctName}/{YourRepoName}.git
+git push -u origin master
+</pre></code>
 
 Step 5: Add OpenCPU Webhook
 ====================================================

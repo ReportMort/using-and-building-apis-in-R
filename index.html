@@ -1072,7 +1072,7 @@ resp
 </code></pre>
 
 <pre><code>Response [http://www.omdbapi.com/?t=The+Godfather&amp;plot=short&amp;r=xml]
-  Date: 2016-01-22 05:05
+  Date: 2016-01-22 05:20
   Status: 200
   Content-Type: text/xml; charset=utf-8
   Size: 796 B
@@ -1276,7 +1276,12 @@ pothole_predict &lt;- function(input){
 <h3>Step 3: Save Model as Package</h3>
 <div class="slideContent" >
 <div class="midcenter" style="margin-left:-410px; margin-top:-255px; width:103%;">
-![building R package](build-as-package.png)
+  <img style="width:48%;" src="https://raw.githubusercontent.com/ReportMort/using-and-building-apis-in-R/gh-pages/build-as-package.png" alt="r-package-structure">
+</div>
+
+<div class="footer">
+&nbsp;&nbsp;Create package documentation with: 
+<span style="font-family: monospace; font-size: 75%;">devtools::document()</span>
 </div>
 
 </div>
@@ -1285,6 +1290,16 @@ pothole_predict &lt;- function(input){
 <section data-transition="linear" data-transition-speed="default">
 <h3>Step 4: Push Code to Github</h3>
 <div class="slideContent" >
+<p><div class="midcenter" style="margin-left:-410px; margin-top:-255px; width:103%;">
+  <img style="width:48%;" src="https://raw.githubusercontent.com/ReportMort/using-and-building-apis-in-R/gh-pages/new-repo-screen.png" alt="r-package-structure">
+</div><br><br>
+<pre><code>cd pkg-directory
+git init
+git add -all
+git commit -m &quot;Initial Commit&quot;
+git remote add origin <a href="mailto:git@github.com">git@github.com</a>:{YourAcctName}/{YourRepoName}.git
+git push -u origin master
+</pre></code></p>
 
 </div>
 
