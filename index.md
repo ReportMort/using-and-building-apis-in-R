@@ -150,7 +150,7 @@ resp
 
 ```
 Response [http://www.omdbapi.com/?t=The+Godfather&plot=short&r=xml]
-  Date: 2016-01-22 05:20
+  Date: 2016-01-22 05:36
   Status: 200
   Content-Type: text/xml; charset=utf-8
   Size: 796 B
@@ -350,7 +350,7 @@ Step 4: Push Code to Github
 ====================================================
 <div class="midcenter" style="margin-left:-410px; margin-top:-255px; width:103%;">
   <img style="width:48%;" src="https://raw.githubusercontent.com/ReportMort/using-and-building-apis-in-R/gh-pages/new-repo-screen.png" alt="r-package-structure">
-</div><br><br>
+</div><br><br><br><br><br><br><br><br><br>
 <pre><code>cd pkg-directory
 git init
 git add -all
@@ -361,10 +361,40 @@ git push -u origin master
 
 Step 5: Add OpenCPU Webhook
 ====================================================
+<div class="midcenter" style="margin-left:-410px; margin-top:-255px; width:103%;">
+  <img style="width:75%;" src="https://raw.githubusercontent.com/ReportMort/using-and-building-apis-in-R/gh-pages/opencpu-webhook.png" alt="opencpu-webhook">
+</div>
 
 Step 6: Try Out Your API
 ====================================================
+Calling API via <span style="font-family: monospace; font-size: 75%;">curl</span>
+<pre><code>curl https://public.opencpu.org/ocpu/github/ReportMort/pothole/R/pothole_predict/json \
+  -H "Content-Type: application/json" \
+  -d '{"input" : [ {"month":"2016-03-01"} ]}'
+</pre></code>
 
+Or you can call the API from R
+
+```r
+res <- RCurl::postForm(paste0('https://public.opencpu.org/ocpu/github/ReportMort', 
+                              '/pothole/R/pothole_predict/json'),
+       .opts = list(postfields = toJSON(list(input=list(month="2016-03-01"))),
+       httpheader=c('Content-Type'='application/json',Accept='application/json'),
+       ssl.verifypeer=FALSE))
+rjson::fromJSON(res)
+```
+
+```
+[[1]]
+[[1]]$month
+[1] "2016-03-01"
+
+[[1]]$prediction_type
+[1] "FORECASTED"
+
+[[1]]$potholes_filled
+[1] 35928
+```
 
 Additional References
 ====================================================
