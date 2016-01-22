@@ -150,7 +150,7 @@ resp
 
 ```
 Response [http://www.omdbapi.com/?t=The+Godfather&plot=short&r=xml]
-  Date: 2016-01-22 05:36
+  Date: 2016-01-22 05:41
   Status: 200
   Content-Type: text/xml; charset=utf-8
   Size: 796 B
@@ -268,9 +268,6 @@ Repo background: https://public.opencpu.org/ocpu/github/ReportMort/pothole/www/
 
 Step 1: Build Model
 ====================================================
-<div class="footer">
-&nbsp;&nbsp;Full Script Available at: <a href="https://github.com/ReportMort/pothole/blob/master/inst/pothole/createmodel.R">https://github.com/ReportMort/pothole/blob/master/inst/pothole/createmodel.R</a>
-</div> 
 
 ```r
 options(stringsAsFactors=FALSE);library(forecast);library(rjson);library(lubridate)
@@ -300,6 +297,7 @@ pothole_data$month_as_date <- as.Date(ymd(paste0(pothole_data$report_year,
 save(file='./data/pothole_model.rda', list=c('pothole_model'))
 save(file='./data/pothole_data.rda', list=c('pothole_data'))
 ```
+
 
 Step 2: Write Scoring Logic
 ====================================================
@@ -336,6 +334,7 @@ pothole_predict <- function(input){
   fc <- forecast(pothole_model, h=months_to_forecast)
 ```
 
+
 Step 3: Save Model as Package
 ====================================================
 <div class="midcenter" style="margin-left:-410px; margin-top:-255px; width:103%;">
@@ -345,6 +344,7 @@ Step 3: Save Model as Package
 &nbsp;&nbsp;Create package documentation with: 
 <span style="font-family: monospace; font-size: 75%;">devtools::document()</span>
 </div>
+
 
 Step 4: Push Code to Github
 ====================================================
@@ -359,11 +359,16 @@ git remote add origin git@github.com:{YourAcctName}/{YourRepoName}.git
 git push -u origin master
 </pre></code>
 
+
 Step 5: Add OpenCPU Webhook
 ====================================================
 <div class="midcenter" style="margin-left:-410px; margin-top:-255px; width:103%;">
   <img style="width:75%;" src="https://raw.githubusercontent.com/ReportMort/using-and-building-apis-in-R/gh-pages/opencpu-webhook.png" alt="opencpu-webhook">
 </div>
+<div class="footer">
+&nbsp;&nbsp;Instructions also available here: <a href="https://www.opencpu.org/api.html#api-ci">https://www.opencpu.org/api.html#api-ci</a>
+</div> 
+
 
 Step 6: Try Out Your API
 ====================================================
