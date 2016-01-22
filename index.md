@@ -150,7 +150,7 @@ resp
 
 ```
 Response [http://www.omdbapi.com/?t=The+Godfather&plot=short&r=xml]
-  Date: 2016-01-22 04:36
+  Date: 2016-01-22 05:05
   Status: 200
   Content-Type: text/xml; charset=utf-8
   Size: 796 B
